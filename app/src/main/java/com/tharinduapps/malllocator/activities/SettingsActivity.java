@@ -8,14 +8,14 @@ import android.widget.ImageButton;
 
 import com.tharinduapps.malllocator.R;
 
-public class MainActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity {
 
-    ImageButton settingsBtn;
+    ImageButton closeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_settings);
 
         initUI();
     }
@@ -26,16 +26,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initElements(){
-        settingsBtn = (ImageButton)findViewById(R.id.settingsBtn);
+        closeBtn = (ImageButton)findViewById(R.id.closeBtn);
     }
 
     private void initOnClicks(){
-        settingsBtn.setOnClickListener(new View.OnClickListener() {
+        closeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent filterIntent = new Intent(getApplicationContext(), SettingsActivity.class);
-                startActivity(filterIntent);
-                overridePendingTransition(R.anim.slide_to_top, R.anim.keep_active);
+                finish();
+                overridePendingTransition(R.anim.keep_active, R.anim.slide_to_bottom);
             }
         });
     }
