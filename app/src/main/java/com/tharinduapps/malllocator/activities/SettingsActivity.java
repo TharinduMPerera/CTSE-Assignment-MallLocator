@@ -65,6 +65,7 @@ public class SettingsActivity extends AppCompatActivity {
                     msg = "Data has already been inserted.";
                 } else{
                     dbHelper.insertMalls(getMallObjects());
+                    MainActivity.didDBChange = true;
                 }
 
                 AlertDialog textDialog = new AlertDialog.Builder(context)
@@ -95,6 +96,7 @@ public class SettingsActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 if (dbHelper.getAllMalls().size()>0){
                                     dbHelper.deleteAll();
+                                    MainActivity.didDBChange = true;
                                     Toast.makeText(getApplicationContext(),"Data is deleted.", Toast.LENGTH_SHORT).show();
                                 } else{
                                     Toast.makeText(getApplicationContext(),"No data found.", Toast.LENGTH_SHORT).show();
@@ -111,8 +113,8 @@ public class SettingsActivity extends AppCompatActivity {
     private ArrayList<Mall> getMallObjects(){
         ArrayList<Mall> malls = new ArrayList<>();
 
-        malls.add(new Mall(1,"Liberty Plaza","Colombo 3","0112 254 811",4.2f,6.9112714,79.7815067));
-        malls.add(new Mall(2,"Majestic City","Colombo 4","0112 508 673",4.3f,6.8822381,79.8460813));
+        malls.add(new Mall(1,"image1","Liberty Plaza","Colombo 3","0112 254 811",4.2f,6.9112714,79.7815067));
+        malls.add(new Mall(2,"image2","Majestic City","Colombo 4","0112 508 673",4.3f,6.8822381,79.8460813));
 
         return  malls;
     }

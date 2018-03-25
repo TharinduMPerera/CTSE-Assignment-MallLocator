@@ -11,7 +11,7 @@ import com.tharinduapps.malllocator.models.Mall;
 import java.util.ArrayList;
 
 /**
- * Created by tharindu on 3/23/18.
+ * Created by kasun on 3/23/18.
  */
 
 public class DBHelper extends SQLiteOpenHelper{
@@ -20,6 +20,7 @@ public class DBHelper extends SQLiteOpenHelper{
     public static final String MALL_TABLE_NAME = "malls";
     public static final String MALL_COLUMN_ID = "id";
     public static final String MALL_COLUMN_NAME = "name";
+    public static final String MALL_COLUMN_IMAGE = "image";
     public static final String MALL_COLUMN_CITY = "city";
     public static final String MALL_COLUMN_TEL = "telephone";
     public static final String MALL_COLUMN_RATE = "rating";
@@ -33,7 +34,7 @@ public class DBHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS "+MALL_TABLE_NAME+" ("+MALL_COLUMN_ID+" integer primary key,"
-                +MALL_COLUMN_NAME+" text,"+MALL_COLUMN_CITY+" text,"+MALL_COLUMN_TEL+" text,"
+                +MALL_COLUMN_NAME+" text,"+MALL_COLUMN_IMAGE+" text,"+MALL_COLUMN_CITY+" text,"+MALL_COLUMN_TEL+" text,"
                 +MALL_COLUMN_RATE+" real,"+MALL_COLUMN_LAT+" real,"+MALL_COLUMN_LON+" real)");
     }
 
@@ -43,10 +44,11 @@ public class DBHelper extends SQLiteOpenHelper{
         onCreate(db);
     }
 
-    public void insertMall (String name, String city, String tel, float rate, double lat, double lon) {
+    public void insertMall (String name, String image, String city, String tel, float rate, double lat, double lon) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(MALL_COLUMN_NAME, name);
+        contentValues.put(MALL_COLUMN_IMAGE, image);
         contentValues.put(MALL_COLUMN_CITY, city);
         contentValues.put(MALL_COLUMN_TEL, tel);
         contentValues.put(MALL_COLUMN_RATE, rate);
@@ -62,6 +64,7 @@ public class DBHelper extends SQLiteOpenHelper{
         for (Mall mall : malls){
             ContentValues contentValues = new ContentValues();
             contentValues.put(MALL_COLUMN_NAME, mall.getName());
+            contentValues.put(MALL_COLUMN_IMAGE, mall.getImage());
             contentValues.put(MALL_COLUMN_CITY, mall.getCity());
             contentValues.put(MALL_COLUMN_TEL, mall.getTelephone());
             contentValues.put(MALL_COLUMN_RATE, mall.getRate());
@@ -82,6 +85,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
         int idIndex = cursor.getColumnIndex(MALL_COLUMN_ID);
         int nameIndex = cursor.getColumnIndex(MALL_COLUMN_NAME);
+        int imageIndex = cursor.getColumnIndex(MALL_COLUMN_IMAGE);
         int cityIndex = cursor.getColumnIndex(MALL_COLUMN_CITY);
         int telIndex = cursor.getColumnIndex(MALL_COLUMN_TEL);
         int rateIndex = cursor.getColumnIndex(MALL_COLUMN_RATE);
@@ -91,13 +95,14 @@ public class DBHelper extends SQLiteOpenHelper{
         while(cursor.isAfterLast() == false){
             Integer id = cursor.getInt(idIndex);
             String name = cursor.getString(nameIndex);
+            String image = cursor.getString(imageIndex);
             String city = cursor.getString(cityIndex);
             String tel = cursor.getString(telIndex);
             Float rate = cursor.getFloat(rateIndex);
             Double lat = cursor.getDouble(latIndex);
             Double lon = cursor.getDouble(lonIndex);
 
-            mallList.add(new Mall(id,name,city,tel,rate,lat,lon));
+            mallList.add(new Mall(id,name,image,city,tel,rate,lat,lon));
             cursor.moveToNext();
         }
         db.close();

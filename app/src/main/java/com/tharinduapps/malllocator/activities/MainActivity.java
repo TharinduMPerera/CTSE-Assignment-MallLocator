@@ -22,10 +22,14 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     private View firstTab;
     private View secondTab;
 
+    public static boolean didDBChange;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        didDBChange = false;
 
         initUI();
         setHomeTabLayout();
