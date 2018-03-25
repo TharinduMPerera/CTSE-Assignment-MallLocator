@@ -113,8 +113,16 @@ public class SettingsActivity extends AppCompatActivity {
     private ArrayList<Mall> getMallObjects(){
         ArrayList<Mall> malls = new ArrayList<>();
 
-        malls.add(new Mall(1,"image1","Liberty Plaza","Colombo 3","0112 254 811",4.2f,6.9112714,79.7815067));
-        malls.add(new Mall(2,"image2","Majestic City","Colombo 4","0112 508 673",4.3f,6.8822381,79.8460813));
+        malls.add(new Mall(1,"image1","Liberty Plaza","Colombo 3","0112 254 811",4.2f,6.9113598,79.851157));
+        malls.add(new Mall(2,"image2","Majestic City","Colombo 4","0112 508 673",4.3f,6.894127,79.8546198));
+        malls.add(new Mall(3,"image3","Arcade Independence Square","Colombo","071 345 6789",4.2f,6.902570,79.868915));
+        malls.add(new Mall(4,"image4","Dutch Hospital","Colombo 7","078 555 467",4.1f,6.902551,79.868832));
+        malls.add(new Mall(5,"image5","Crescat Shopping Mall","Colombo","0112 152 100",3.6f,6.917006,79.848256));
+        malls.add(new Mall(6,"image6","Colombo City Centre","Colombo","0112 300 100",5.0f,6.917609,79.855325));
+        malls.add(new Mall(7,"image7","Odel","Dehiwala-Mount Lavinia","0112 789 700",4.6f,6.841328,79.866775));
+        malls.add(new Mall(8,"image8","Cotton Collection","Colombo 3","0112 657 890",3.6f,6.914775,79.859064));
+        malls.add(new Mall(9,"image9","Capital Mall","Pitakotte","0112 786 876",4.0f,6.874732,79.934653));
+        malls.add(new Mall(10,"image10","The Factory Outlet","Sri Jayawardenepura Kotte","0114 154 700",4.5f,6.889142,79.929297));
 
         return  malls;
     }

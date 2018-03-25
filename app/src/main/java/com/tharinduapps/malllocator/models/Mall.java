@@ -20,7 +20,7 @@ public class Mall implements Parcelable {
     public Mall() {
     }
 
-    public Mall(int id, String name, String city, String telephone, String image, float rate, double lat, double lon) {
+    public Mall(int id, String image, String name, String city, String telephone, float rate, double lat, double lon) {
         this.id = id;
         this.name = name;
         this.city = city;

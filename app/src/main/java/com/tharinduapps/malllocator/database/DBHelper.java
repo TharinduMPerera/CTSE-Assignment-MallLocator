@@ -102,7 +102,7 @@ public class DBHelper extends SQLiteOpenHelper{
             Double lat = cursor.getDouble(latIndex);
             Double lon = cursor.getDouble(lonIndex);
 
-            mallList.add(new Mall(id,name,image,city,tel,rate,lat,lon));
+            mallList.add(new Mall(id,image,name,city,tel,rate,lat,lon));
             cursor.moveToNext();
         }
         db.close();
