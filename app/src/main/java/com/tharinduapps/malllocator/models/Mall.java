@@ -13,6 +13,7 @@ public class Mall implements Parcelable {
     private String city;
     private String telephone;
     private String image;
+    private String coverImage;
     private float rate;
     private double lat;
     private double lon;
@@ -20,12 +21,13 @@ public class Mall implements Parcelable {
     public Mall() {
     }
 
-    public Mall(int id, String image, String name, String city, String telephone, float rate, double lat, double lon) {
+    public Mall(int id, String image, String name, String city, String telephone, String coverImage, float rate, double lat, double lon) {
         this.id = id;
         this.name = name;
         this.city = city;
         this.telephone = telephone;
         this.image = image;
+        this.coverImage = coverImage;
         this.rate = rate;
         this.lat = lat;
         this.lon = lon;
@@ -95,6 +97,14 @@ public class Mall implements Parcelable {
         this.image = image;
     }
 
+    public String getCoverImage() {
+        return coverImage;
+    }
+
+    public void setCoverImage(String coverImage) {
+        this.coverImage = coverImage;
+    }
+
 
     @Override
     public int describeContents() {
@@ -108,6 +118,7 @@ public class Mall implements Parcelable {
         dest.writeString(this.city);
         dest.writeString(this.telephone);
         dest.writeString(this.image);
+        dest.writeString(this.coverImage);
         dest.writeFloat(this.rate);
         dest.writeDouble(this.lat);
         dest.writeDouble(this.lon);
@@ -119,12 +130,13 @@ public class Mall implements Parcelable {
         this.city = in.readString();
         this.telephone = in.readString();
         this.image = in.readString();
+        this.coverImage = in.readString();
         this.rate = in.readFloat();
         this.lat = in.readDouble();
         this.lon = in.readDouble();
     }
 
-    public static final Parcelable.Creator<Mall> CREATOR = new Parcelable.Creator<Mall>() {
+    public static final Creator<Mall> CREATOR = new Creator<Mall>() {
         @Override
         public Mall createFromParcel(Parcel source) {
             return new Mall(source);
