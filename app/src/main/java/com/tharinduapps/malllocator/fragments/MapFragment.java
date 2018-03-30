@@ -51,12 +51,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
 
     private void initMarkers() {
 
+        map.clear();
+
         ArrayList<Mall> malls = dbHelper.getAllMalls();
         if (malls != null && map != null) {
 
-            if (malls.size() < 1) {
-                map.clear();
-            } else {
+            if (malls.size() > 0) {
                 LatLng latLng;
                 Marker marker;
                 for (Mall mall : malls) {
