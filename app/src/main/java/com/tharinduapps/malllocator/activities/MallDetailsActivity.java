@@ -28,7 +28,6 @@ public class MallDetailsActivity extends AppCompatActivity implements OnMapReady
     private ImageView coverImage;
     private RatingBar ratingBar;
 
-//    private View mapView;
     private GoogleMap map;
 
     @Override
@@ -70,7 +69,6 @@ public class MallDetailsActivity extends AppCompatActivity implements OnMapReady
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-//        mapView = mapFragment.getView();
     }
 
     private void setObject() {

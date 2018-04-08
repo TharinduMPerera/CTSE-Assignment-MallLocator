@@ -22,7 +22,7 @@ import java.util.ArrayList;
  * Created by User on 25/03/2018.
  */
 
-public class RecyclerAdapter extends RecyclerView.Adapter <RecyclerAdapter.ImageViewHolder>{
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ImageViewHolder> {
 
     private Context context;
     private DBHelper dbHelper;
@@ -36,21 +36,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter <RecyclerAdapter.Image
 
     @Override
     public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_layout,parent,false);
-        ImageViewHolder imageViewHolder= new ImageViewHolder(view,context);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_layout, parent, false);
+        ImageViewHolder imageViewHolder = new ImageViewHolder(view, context);
         return imageViewHolder;
     }
 
     @Override
     public void onBindViewHolder(ImageViewHolder holder, int position) {
 
-        Mall mall ;
+        Mall mall;
         mall = malls.get(position);
-        holder.imageView.setImageResource(context.getResources().getIdentifier(mall.getCoverImage() , "drawable", context.getPackageName()));
+        holder.imageView.setImageResource(context.getResources().getIdentifier(mall.getCoverImage(), "drawable", context.getPackageName()));
         holder.name.setText(mall.getName());
         holder.address.setText(mall.getCity());
         holder.ratingBar.setRating(mall.getRate());
-
 
 
     }
@@ -69,7 +68,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter <RecyclerAdapter.Image
         Context context;
 
 
-        public ImageViewHolder(View itemView,Context context) {
+        public ImageViewHolder(View itemView, Context context) {
             super(itemView);
             imageView = itemView.findViewById(R.id.album);
             name = itemView.findViewById(R.id.album_title);
@@ -78,7 +77,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter <RecyclerAdapter.Image
             itemView.setOnClickListener(this);
             this.context = context;
         }
-
 
 
         @Override
