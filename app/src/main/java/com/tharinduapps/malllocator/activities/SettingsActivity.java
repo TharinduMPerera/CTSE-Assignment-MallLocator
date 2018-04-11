@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -20,8 +21,8 @@ import java.util.ArrayList;
 public class SettingsActivity extends AppCompatActivity {
 
     private ImageButton closeBtn;
-    private RelativeLayout insertBtn;
-    private RelativeLayout deleteBtn;
+    private Button insertBtn;
+    private Button deleteBtn;
 
     private DBHelper dbHelper;
     private Context context;
@@ -44,8 +45,8 @@ public class SettingsActivity extends AppCompatActivity {
 
     private void initElements(){
         closeBtn = (ImageButton)findViewById(R.id.closeBtn);
-        insertBtn = (RelativeLayout)findViewById(R.id.insertBtn);
-        deleteBtn = (RelativeLayout)findViewById(R.id.deleteBtn);
+        insertBtn = (Button)findViewById(R.id.insertBtn);
+        deleteBtn = (Button)findViewById(R.id.deleteBtn);
     }
 
     private void initOnClicks(){
